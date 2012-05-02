@@ -3,10 +3,11 @@ type(int).
 
 instance(_, string).
 instance(_, hashmap).
-instance(_, abstractmap).
 instance(_, int).
 
-subclass(abstractmap, hashmap).
+subClass(abstractmap, hashmap).
+subClass(object, abstractmap).
+subClass(object, string).
 
 hasMethod(string, length).
 hasMethod(string, println).
@@ -14,8 +15,14 @@ hasMethod(string, charAt).
 hasMethod(string, equals).
 hasMethod(string, indexOf).
 
+hasMethod(object, finalize).
+hasMethod(object, getClass).
+hasMethod(object, notify).
+hasMethod(object, wait).
+
 hasMethod(abstractmap, hashCode).
 hasMethod(abstractmap, toString).
+
 
 hasMethod(hashmap, size).
 hasMethod(hashmap, isEmpty).
