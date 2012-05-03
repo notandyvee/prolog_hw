@@ -31,9 +31,7 @@ hasMethod(collection, hashCode).
 
 hasMethod(iterable, iterator).
 
-print_works(string).
-print_works(int).
-can_println(X):- instance(X, C), print_works(C).
+print(X).
 
 check(X, M):- instance(X, C), hasMethod(C, M); instance(X, C), subClass(E, C), hasMethod(E, M).
 
