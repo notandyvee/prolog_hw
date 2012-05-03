@@ -1,16 +1,16 @@
 type(string).
 type(int).
 
-instance(_, string).
-instance(_, hashmap).
-instance(_, int).
+instance(s, string).
+instance(l, list).
+instance(i, int).
 
-subClass(abstractmap, hashmap).
-subClass(object, abstractmap).
+subClass(object, list).
+subClass(collection, list).
+subClass(iterable, list).
 subClass(object, string).
 
 hasMethod(string, length).
-hasMethod(string, println).
 hasMethod(string, charAt).
 hasMethod(string, equals).
 hasMethod(string, indexOf).
@@ -20,13 +20,20 @@ hasMethod(object, getClass).
 hasMethod(object, notify).
 hasMethod(object, wait).
 
-hasMethod(abstractmap, hashCode).
-hasMethod(abstractmap, toString).
+hasMethod(list, size).
+hasMethod(list, add).
+hasMethod(list, hashCode).
+hasMethod(list, get).
 
+hasMethod(collection, size).
+hasMethod(collection, add).
+hasMethod(collection, hashCode).
 
-hasMethod(hashmap, size).
-hasMethod(hashmap, isEmpty).
-hasMethod(hashmap, hashCode).
+hasMethod(iterable, iterator).
 
-check(X, M):- instance(X, C), hasMethod(C, M); subClass(E, C), hasMethod(E, M).
+print_works(string).
+print_works(int).
+can_println(X):- instance(X, C), print_works(C).
+
+check(X, M):- instance(X, C), hasMethod(C, M); instance(X, C), subClass(E, C), hasMethod(E, M).
 
